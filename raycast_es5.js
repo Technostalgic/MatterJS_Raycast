@@ -1,3 +1,9 @@
+"use strict";
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 ///
 ///				code by Isaiah Smith
 ///		technostalgic.itch.io  |  @technostalgicGM
@@ -6,11 +12,6 @@
 ///	https://github.com/Technostalgic/MatterJS_Raycast.git
 ///
 
-"use strict";
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 //raycast functionality integrated with matter.js since there 
 //is no built-in method for raycasting that returns the ray's
@@ -59,7 +60,7 @@ function raycast(bodies, start, end) {
 	//if desired, we then sort the collisions based on the
 	//distance from the ray's start
 	if (sort) cols.sort(function (a, b) {
-		return a.point.distance(start) > b.point.distance(start);
+		return a.point.distance(start) - b.point.distance(start);
 	});
 
 	return cols;
