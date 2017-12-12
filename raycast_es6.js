@@ -53,7 +53,7 @@ function raycast(bodies, start, end, sort = true){
 	//distance from the ray's start
 	if(sort)
 		cols.sort(function(a,b){
-			return a.point.distance(start) > b.point.distance(start);
+			return a.point.distance(start) - b.point.distance(start);
 		});
 	
 	return cols;
